@@ -1,29 +1,46 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <stdarg.h>
+#include <unistd.h>
 
-/*
- * Structure for storing different types that _printf can print and their respective functions.
- * Define type and args in separate lines.
- * @type: the type of the format (e.g., 'c', 's').
- * @f: the function that will print the associated type.
+
+/**
+ * struct format - converter for printf
+ * @ph: type char pointer of the specifier
+ * @function: function for the conversion specifier
+ *
  */
 
-typedef struct formats
+typedef struct format
 {
-	char type;
-	int (*f)(va_list args);
-} format_t;
+	char *ph;
+	int (*function)();
+} convert;
 
-int _putchar(char c);
+int print_c(va_list val);
+int print_s(va_list val);
+int _strlen(char *s);
+int _strlen(char *s);
+
+int print_exc_string(va_list val);
+int print_bin(va_list val);
+int print_rot13(va_list args);
+int print_revs(va_list args);
+int print_hex_extra(unsigned long int num);
+int print_hex(va_list val);
+int print_pointer(va_list val);
+int print_HEX_extra(unsigned int num);
+int print_HEX(va_list val);
+int print_oct(va_list val);
+int print_unsigned(va_list args);
+int print_37(void);
+int print_d(va_list args);
+int print_i(va_list args);
+int putss(char *c);
+int putchr(char c);
 int _printf(const char *format, ...);
-int _print_char(va_list args);
-int _print_modulo(va_list args);
-int print_string(va_list args);
-int _print_decimal_recursive(int num);
-int _print_decimal(va_list args);
+
 #endif
