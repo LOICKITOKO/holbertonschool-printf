@@ -37,7 +37,7 @@ Here:
 			}
 			j--;
 		}
-		putchr(format[i]);
+		putcahr(format[i]);
 		length++;
 		i++;
 	}
